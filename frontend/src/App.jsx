@@ -65,7 +65,7 @@ const App = () => {
             setNewNumber('')
             displayNotification(`Added ${person.name}`, 'success')
           })
-          .catch(() => displayNotification(`Failed to connect to the server`, 'error'))
+          .catch((error) => displayNotification(error.response.data.error, 'error'))
       }
 
   }

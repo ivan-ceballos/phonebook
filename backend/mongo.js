@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 if (process.argv.length !== 3 && process.argv.length !== 5) {
   console.log('Usage: ')
   console.log('node mongo.js <password> - To display all entries in the phonebook')
-  console.log('node mongo.js <password> <name> <number> - To add a new entry to the phonebook')  
+  console.log('node mongo.js <password> <name> <number> - To add a new entry to the phonebook')
   process.exit(1)
 }
 
@@ -42,7 +42,7 @@ if (process.argv.length === 5) {
     .catch(error => {
       console.log('error saving person:', error.message)
       mongoose.connection.close()
-    })  
+    })
 } else {
   Person
     .find({})

@@ -7,8 +7,8 @@ const Person = require('./models/person')
 const app = express()
 
 morgan.token('body', (req) => {
-  return req.method === 'POST' ? JSON.stringify(req.body) : ""
-});
+  return req.method === 'POST' ? JSON.stringify(req.body) : ''
+})
 
 app.use(express.static('dist'))
 app.use(express.json())
@@ -66,7 +66,7 @@ app.put('/api/persons/:id', (req, res, next) => {
     number: body.number
   }
 
-  Person.findByIdAndUpdate(req.params.id, person, { new: true, runValidators: true}, { context: 'query' })
+  Person.findByIdAndUpdate(req.params.id, person, { new: true, runValidators: true }, { context: 'query' })
     .then(updatedPerson => {
       res.json(updatedPerson)
     })
@@ -103,3 +103,4 @@ const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
